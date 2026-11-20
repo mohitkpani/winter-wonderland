@@ -1,0 +1,577 @@
+/* =====================================
+   VILLAGE PAGE
+===================================== */
+
+.village-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 115px 5% 85px;
+
+    color: #ffffff;
+    overflow-x: clip;
+    box-sizing: border-box;
+
+    background:
+        radial-gradient(ellipse at top,
+            #173653,
+            transparent 55%),
+        #071426;
+}
+
+.village-page *,
+.village-page *::before,
+.village-page *::after {
+    box-sizing: border-box;
+}
+
+/* =====================================
+   PAGE HEADING
+===================================== */
+
+.village-heading {
+    max-width: 850px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.village-eyebrow {
+    color: #EF5350;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.village-heading h1 {
+    margin: 17px 0;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(36px, 5vw, 62px);
+    line-height: 1.2;
+}
+
+.village-heading h1 span {
+    color: #43A66B;
+}
+
+.village-heading p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #bdcbd9;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* =====================================
+   MAIN VILLAGE IMAGE
+===================================== */
+
+.village-world {
+    position: relative;
+    isolation: isolate;
+
+    width: 100%;
+    max-width: 1450px;
+
+    margin: 0 auto;
+
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+
+    border: 1px solid rgba(22, 131, 74, 0.4);
+    border-radius: 16px;
+
+    background: #10243b;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.village-background {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+
+    transition: transform 0.8s ease;
+}
+
+.village-world:hover .village-background {
+    transform: scale(1.015);
+}
+
+/* =====================================
+   INVISIBLE BUILDING HOTSPOTS
+===================================== */
+
+.village-hotspot {
+    position: absolute;
+    z-index: 3;
+
+    display: block;
+
+    padding: 0;
+    border: 0;
+    border-radius: 12px;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Building positions */
+
+.hotspot-home {
+    top: 34%;
+    left: 8%;
+    width: 26%;
+    height: 53%;
+}
+
+.hotspot-workshop {
+    top: 24%;
+    left: 32%;
+    width: 28%;
+    height: 43%;
+}
+
+.hotspot-market {
+    top: 35%;
+    left: 56%;
+    width: 23%;
+    height: 40%;
+}
+
+.hotspot-stable {
+    top: 20%;
+    right: 1%;
+    width: 22%;
+    height: 58%;
+}
+
+/* Invisible until hovered */
+
+.village-hotspot:hover {
+    background: rgba(22, 131, 74, 0.08);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(67, 166, 107, 0.5),
+        0 0 20px rgba(22, 131, 74, 0.12);
+}
+
+.village-hotspot:focus-visible {
+    outline: 2px solid #43A66B;
+    outline-offset: -3px;
+}
+
+/* =====================================
+   DISCOVER VILLAGE SECTION
+===================================== */
+
+.village-discover {
+    max-width: 1200px;
+    margin: 65px auto 0;
+}
+
+.village-discover-heading {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.village-discover-heading>span {
+    color: #EF5350;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.village-discover-heading h2 {
+    margin: 12px 0;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(29px, 4vw, 40px);
+    color: #43A66B;
+}
+
+.village-discover-heading p {
+    color: #bdcbd9;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* =====================================
+   LOCATION CARDS
+===================================== */
+
+.village-location-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.village-location-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    min-width: 0;
+    padding: 23px;
+
+    border: 1px solid rgba(22, 131, 74, 0.3);
+    border-radius: 12px;
+
+    background: rgba(16, 39, 63, 0.8);
+
+    color: #ffffff;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.village-location-card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(67, 166, 107, 0.75);
+
+    background: rgba(28, 57, 83, 0.95);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.location-information {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.location-information strong {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: #43A66B;
+}
+
+.location-information small {
+    color: #aebdce;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.location-arrow {
+    flex-shrink: 0;
+    color: #EF5350;
+    transition: transform 0.3s ease;
+}
+
+.village-location-card:hover .location-arrow {
+    transform: translate(4px, -4px);
+}
+
+/* =====================================
+   LOCATION MODAL
+===================================== */
+
+.village-dialog-backdrop {
+    position: fixed;
+    z-index: 100;
+    inset: 0;
+
+    display: grid;
+    place-items: center;
+
+    padding: 20px;
+
+    background: rgba(2, 9, 19, 0.85);
+
+    backdrop-filter: blur(9px);
+}
+
+.village-dialog {
+    position: relative;
+
+    width: 100%;
+    max-width: 470px;
+
+    padding: 45px 35px 35px;
+
+    border: 1px solid rgba(22, 131, 74, 0.5);
+    border-radius: 16px;
+
+    background:
+        radial-gradient(ellipse at top,
+            #1c3b59,
+            transparent 75%),
+        #10243b;
+
+    text-align: center;
+
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+
+    animation: villageDialogEnter 0.3s ease both;
+}
+
+.village-dialog-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    display: grid;
+    place-items: center;
+
+    width: 38px;
+    height: 38px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.village-dialog-close:hover {
+    background: rgba(198, 40, 40, 0.3);
+}
+
+.dialog-eyebrow {
+    color: #EF5350;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.village-dialog h2 {
+    margin: 15px 0;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 31px;
+    color: #43A66B;
+}
+
+.village-dialog p {
+    color: #bdcbd9;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.village-dialog-button {
+    margin-top: 20px;
+    padding: 13px 25px;
+
+    border: 1px solid #C62828;
+    border-radius: 7px;
+
+    background: #C62828;
+
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.village-dialog-button:hover {
+    background: #A91F1F;
+    border-color: #A91F1F;
+}
+
+/* =====================================
+   ANIMATIONS
+===================================== */
+
+@keyframes villageDialogEnter {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 900px) {
+    .village-page {
+        padding: 105px 4% 65px;
+    }
+
+    .village-world {
+        aspect-ratio: 4 / 3;
+    }
+
+    .village-location-card {
+        padding: 19px;
+    }
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 600px) {
+    .village-page {
+        padding: 100px 4% 55px;
+    }
+
+    .village-heading {
+        margin-bottom: 30px;
+    }
+
+    .village-heading h1 {
+        font-size: 35px;
+    }
+
+    .village-heading p {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .village-world {
+        aspect-ratio: 4 / 5;
+        border-radius: 11px;
+    }
+
+    .village-background {
+        object-position: center;
+    }
+
+    /* Mobile building hotspots */
+
+    .hotspot-home {
+        top: 35%;
+        left: 3%;
+        width: 37%;
+        height: 35%;
+    }
+
+    .hotspot-workshop {
+        top: 29%;
+        left: 34%;
+        width: 35%;
+        height: 30%;
+    }
+
+    .hotspot-market {
+        top: 42%;
+        left: 54%;
+        width: 28%;
+        height: 28%;
+    }
+
+    .hotspot-stable {
+        top: 24%;
+        right: 0;
+        width: 28%;
+        height: 43%;
+    }
+
+    .village-discover {
+        margin-top: 45px;
+    }
+
+    .village-discover-heading {
+        margin-bottom: 23px;
+    }
+
+    .village-location-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .village-location-card {
+        padding: 18px;
+    }
+
+    .location-information strong {
+        font-size: 17px;
+    }
+
+    .village-dialog-backdrop {
+        padding: 16px;
+    }
+
+    .village-dialog {
+        padding: 42px 22px 28px;
+    }
+
+    .village-dialog h2 {
+        font-size: 27px;
+    }
+
+    .village-dialog p {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+}
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 380px) {
+    .village-heading h1 {
+        font-size: 31px;
+    }
+
+    .village-eyebrow {
+        letter-spacing: 3px;
+    }
+
+    .village-location-card {
+        padding: 15px;
+    }
+
+    .location-information small {
+        font-size: 11px;
+    }
+
+    .village-dialog h2 {
+        font-size: 24px;
+    }
+}
+
+/* =====================================
+   ACCESSIBILITY
+===================================== */
+
+.village-location-card:focus-visible,
+.village-dialog-button:focus-visible,
+.village-dialog-close:focus-visible {
+    outline: 2px solid #43A66B;
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .village-dialog,
+    .village-background,
+    .village-location-card,
+    .location-arrow {
+        animation: none !important;
+        transition: none !important;
+    }
+}

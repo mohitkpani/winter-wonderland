@@ -1,0 +1,1087 @@
+/* =========================================
+   CHRISTMAS TREE PAGE
+========================================= */
+
+.christmas-tree-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 110px 5% 55px;
+    position: relative;
+    overflow-x: clip;
+
+    background:
+        linear-gradient(rgba(3, 15, 35, 0.12), rgba(3, 15, 35, 0.25)),
+        url("/images/christmas-winter-background.webp") center / cover no-repeat;
+
+    background-attachment: fixed;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.christmas-tree-page *,
+.christmas-tree-page *::before,
+.christmas-tree-page *::after {
+    box-sizing: border-box;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.tree-page-heading {
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    margin: 0 auto 20px;
+}
+
+.tree-eyebrow {
+    color: #EF5350;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.tree-page-heading h1 {
+    margin: 12px 0;
+    font-family: Georgia, serif;
+    font-size: clamp(36px, 5vw, 62px);
+    font-weight: 500;
+    line-height: 1.15;
+    color: #43A66B;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.45);
+}
+
+.tree-page-heading p {
+    margin: 0;
+    color: #e5edf6;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   MAIN SCENE
+========================================= */
+
+.tree-scene {
+    width: 100%;
+    max-width: 1450px;
+    min-height: 620px;
+    margin: 0 auto;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr) minmax(0, 1.15fr);
+    grid-template-rows: minmax(440px, 1fr) auto;
+    align-items: end;
+    gap: 10px;
+
+    isolation: isolate;
+}
+
+.tree-glow {
+    position: absolute;
+    width: 420px;
+    height: 460px;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+
+    background: radial-gradient(ellipse,
+            rgba(255, 211, 117, 0.22),
+            rgba(255, 211, 117, 0.07) 45%,
+            transparent 72%);
+
+    filter: blur(25px);
+    opacity: 0.35;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.lights-enabled .tree-glow {
+    opacity: 1;
+}
+
+/* =========================================
+   SANTA
+========================================= */
+
+.tree-santa-area {
+    position: relative;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
+    justify-self: center;
+    width: 100%;
+    max-width: 330px;
+    min-width: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
+
+    isolation: isolate;
+    overflow: visible;
+}
+
+.tree-santa-area::before {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 75%;
+    bottom: 5%;
+    left: 5%;
+
+    background: radial-gradient(ellipse,
+            rgba(255, 194, 98, 0.32),
+            transparent 70%);
+
+    filter: blur(28px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.tree-santa-image {
+    display: block;
+    width: 100%;
+    max-height: 430px;
+    object-fit: contain;
+    object-position: bottom;
+
+    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.25));
+    animation: santa-float 5s ease-in-out infinite;
+
+    position: relative;
+    z-index: 2;
+}
+
+.tree-santa-bubble {
+    position: absolute;
+    top: 0;
+    left: -65px;
+
+    width: 190px;
+    padding: 15px 18px;
+
+    background: #fffaf0;
+    color: #C62828;
+
+    border: 2px solid #16834A;
+    border-radius: 20px;
+
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    z-index: 4;
+}
+
+.tree-santa-bubble p {
+    margin: 0;
+}
+
+.tree-santa-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -11px;
+    right: 35px;
+
+    border-width: 12px 12px 0;
+    border-style: solid;
+    border-color: #fffaf0 transparent transparent;
+}
+
+/* =========================================
+   CHRISTMAS TREE
+========================================= */
+
+.tree-center-area {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: end;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+    z-index: 2;
+    min-width: 0;
+}
+
+.tree-image-wrapper {
+    width: min(100%, 450px);
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tree-image {
+    width: 100%;
+    max-height: 560px;
+    object-fit: contain;
+    display: block;
+    position: relative;
+    z-index: 1;
+
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.2));
+    transition: filter 0.5s ease;
+}
+
+.lights-enabled .tree-image {
+    filter:
+        drop-shadow(0 0 18px rgba(255, 210, 115, 0.45)) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.2));
+}
+
+.tree-base {
+    width: 115px;
+    height: 18px;
+    margin-top: -8px;
+
+    background: linear-gradient(#8c552e, #4e2c1a);
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+   CHRISTMAS BAUBLES
+========================================= */
+
+.tree-baubles {
+    position: absolute;
+    inset: 4% 5% 5%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.tree-bauble {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+
+    box-shadow:
+        inset -4px -5px 7px rgba(0, 0, 0, 0.3),
+        inset 3px 3px 6px rgba(255, 255, 255, 0.65),
+        0 2px 9px rgba(0, 0, 0, 0.28);
+
+    animation: bauble-twinkle 3s ease-in-out infinite;
+    animation-delay: var(--bauble-delay);
+}
+
+.bauble-red {
+    background: radial-gradient(circle at 30% 25%, #ffb1a3, #e52932 50%, #8b0718);
+}
+
+.bauble-gold {
+    background: radial-gradient(circle at 30% 25%, #fff1ad, #e9ae27 52%, #99600c);
+}
+
+.bauble-blue {
+    background: radial-gradient(circle at 30% 25%, #b9e7ff, #267dc0 52%, #123b78);
+}
+
+.bauble-silver {
+    background: radial-gradient(circle at 30% 25%, #fff, #bdc9d5 52%, #687888);
+}
+
+.bauble-cap {
+    position: absolute;
+    width: 7px;
+    height: 4px;
+    top: -4px;
+    left: 6px;
+    border-radius: 2px 2px 0 0;
+    background: #d9c18a;
+}
+
+.bauble-shine {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    left: 4px;
+    top: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    filter: blur(1px);
+}
+
+/* =========================================
+   STARS AND BELLS
+========================================= */
+
+.tree-star {
+    position: absolute;
+    z-index: 3;
+    color: #ffe7a2;
+    text-shadow: 0 0 10px #ffd36b, 0 0 22px #ffc64d;
+    pointer-events: none;
+    animation: star-twinkle 2.5s ease-in-out infinite alternate;
+}
+
+.star-one {
+    top: 20%;
+    left: 65%;
+    font-size: 20px;
+}
+
+.star-two {
+    top: 38%;
+    left: 18%;
+    font-size: 23px;
+    animation-delay: 0.6s;
+}
+
+.star-three {
+    top: 48%;
+    left: 76%;
+    font-size: 17px;
+    animation-delay: 1s;
+}
+
+.star-four {
+    top: 63%;
+    left: 35%;
+    font-size: 19px;
+    animation-delay: 0.3s;
+}
+
+.star-five {
+    top: 76%;
+    left: 70%;
+    font-size: 16px;
+    animation-delay: 1.3s;
+}
+
+.tree-bell {
+    position: absolute;
+    z-index: 3;
+    color: #f3c65e;
+    font-size: 25px;
+    text-shadow: 0 0 8px rgba(255, 215, 120, 0.8);
+    transform: rotate(180deg);
+    pointer-events: none;
+}
+
+.bell-one {
+    top: 45%;
+    left: 33%;
+}
+
+.bell-two {
+    top: 68%;
+    left: 58%;
+}
+
+/* =========================================
+   GIFTS AND LIGHT BUTTON
+========================================= */
+
+.tree-gifts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: -2px;
+}
+
+.tree-gift-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+.tree-gift-button:hover {
+    transform: translateY(-9px) scale(1.1);
+}
+
+.tree-light-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    margin: 18px 0 24px;
+    padding: 11px 20px;
+
+    border: 1px solid #16834A;
+    border-radius: 30px;
+
+    color: #ffffff;
+    background: rgba(22, 131, 74, 0.35);
+
+    cursor: pointer;
+    font-size: 13px;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.tree-light-button:hover {
+    background: #16834A;
+    border-color: #43A66B;
+    box-shadow: 0 0 18px rgba(67, 166, 107, 0.3);
+}
+
+/* =========================================
+   REINDEER
+========================================= */
+
+.tree-reindeer-area {
+    position: relative;
+    grid-column: 3;
+    grid-row: 1;
+    align-self: end;
+    justify-self: center;
+    width: 100%;
+    max-width: 450px;
+    min-width: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
+
+    isolation: isolate;
+}
+
+.tree-reindeer-area::before {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 65%;
+    left: 5%;
+    bottom: 5%;
+
+    background: radial-gradient(ellipse,
+            rgba(255, 213, 132, 0.3),
+            transparent 70%);
+
+    filter: blur(30px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.tree-reindeer-image {
+    display: block;
+    width: 100%;
+    max-height: 360px;
+    object-fit: contain;
+    object-position: bottom;
+    position: relative;
+    z-index: 1;
+
+    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.25));
+    animation: reindeer-float 6s ease-in-out infinite;
+}
+
+/* =========================================
+   SPARKLES
+========================================= */
+
+.tree-sparkle-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 4;
+}
+
+.scene-sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #fff3c8;
+    border-radius: 50%;
+
+    box-shadow: 0 0 9px 2px rgba(255, 224, 148, 0.8);
+    animation: scene-twinkle 3s ease-in-out infinite;
+}
+
+/* =========================================
+   BOTTOM MESSAGE
+========================================= */
+
+.tree-bottom-message {
+    position: absolute;
+    left: 50%;
+    bottom: 25px;
+    transform: translateX(-50%);
+
+    width: max-content;
+    max-width: 90%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.6;
+    text-align: center;
+
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+    z-index: 5;
+}
+
+.tree-bottom-message p {
+    margin: 0;
+}
+
+/* =========================================
+   GIFT MODAL
+========================================= */
+
+.gift-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(1, 10, 23, 0.75);
+    backdrop-filter: blur(8px);
+}
+
+.gift-modal {
+    width: 100%;
+    max-width: 390px;
+    padding: 40px 30px 32px;
+    position: relative;
+
+    text-align: center;
+    color: #354052;
+
+    background: #fffaf0;
+    border: 2px solid #16834A;
+    border-radius: 22px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    animation: modal-appear 0.3s ease;
+}
+
+.gift-modal h2 {
+    margin: 18px 0 10px;
+    color: #C62828;
+    font-family: Georgia, serif;
+    font-size: 27px;
+}
+
+.gift-modal p {
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.gift-modal-close {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+
+    border: none;
+    background: transparent;
+    color: #59616b;
+    cursor: pointer;
+}
+
+.gift-modal-button {
+    margin-top: 14px;
+    padding: 11px 28px;
+
+    border: none;
+    border-radius: 25px;
+
+    color: white;
+    background: #C62828;
+
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.gift-modal-button:hover {
+    background: #A91F1F;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes santa-float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+@keyframes reindeer-float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+@keyframes bauble-twinkle {
+
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.35);
+    }
+}
+
+@keyframes star-twinkle {
+    from {
+        opacity: 0.45;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes scene-twinkle {
+
+    0%,
+    100% {
+        opacity: 0.15;
+        transform: scale(0.6);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+@keyframes modal-appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =========================================
+   TABLET: 601px - 900px
+========================================= */
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .christmas-tree-page {
+        padding: 100px 20px 40px;
+        background-attachment: scroll;
+    }
+
+    .tree-scene {
+        max-width: 760px;
+        min-height: 600px;
+
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        grid-template-rows: auto auto;
+        gap: 15px;
+        align-items: end;
+    }
+
+    .tree-santa-area {
+        grid-column: 1;
+        grid-row: 1;
+        max-width: 250px;
+    }
+
+    .tree-center-area {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        width: 100%;
+    }
+
+    .tree-reindeer-area {
+        grid-column: 1;
+        grid-row: 2;
+        max-width: 270px;
+        margin-top: 10px;
+    }
+
+    .tree-image-wrapper {
+        max-width: 370px;
+    }
+
+    .tree-santa-bubble {
+        left: -15px;
+        width: 150px;
+        font-size: 12px;
+    }
+
+    .tree-reindeer-image {
+        max-height: 230px;
+    }
+}
+
+/* =========================================
+   MOBILE: UP TO 600px
+========================================= */
+
+@media (max-width: 600px) {
+    .christmas-tree-page {
+        width: 100%;
+        min-height: 100vh;
+        padding: 90px 14px 30px;
+        overflow-x: clip;
+        background-attachment: scroll;
+    }
+
+    .tree-page-heading {
+        width: 100%;
+        margin: 0 auto 20px;
+        padding: 0 5px;
+    }
+
+    .tree-eyebrow {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+    }
+
+    .tree-page-heading h1 {
+        font-size: clamp(30px, 8vw, 39px);
+        line-height: 1.15;
+        margin: 10px 0;
+    }
+
+    .tree-page-heading p {
+        max-width: 320px;
+        margin: 0 auto;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    /* Tree first, characters below */
+
+    .tree-scene {
+        width: 100%;
+        max-width: 440px;
+        min-height: auto;
+        margin: 0 auto;
+
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-rows: auto auto;
+
+        gap: 12px 8px;
+        align-items: end;
+    }
+
+    /* Christmas tree */
+
+    .tree-center-area {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        width: 100%;
+        min-width: 0;
+        align-self: center;
+    }
+
+    .tree-image-wrapper {
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+
+    .tree-image {
+        width: 100%;
+        height: auto;
+        max-height: 430px;
+        object-fit: contain;
+    }
+
+    .tree-glow {
+        width: 90%;
+        height: 350px;
+        top: 30%;
+    }
+
+    /* Santa */
+
+    .tree-santa-area {
+        grid-column: 1;
+        grid-row: 2;
+
+        width: 100%;
+        max-width: 190px;
+        min-width: 0;
+        min-height: 270px;
+
+        justify-self: center;
+        padding-top: 80px;
+
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+
+        overflow: visible;
+    }
+
+    .tree-santa-image {
+        width: 100%;
+        height: 190px;
+        max-height: 190px;
+
+        object-fit: contain;
+        object-position: center bottom;
+    }
+
+    .tree-santa-bubble {
+        position: absolute;
+        width: 145px;
+        max-width: 95%;
+        min-height: 65px;
+
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        padding: 11px;
+        font-size: 11px;
+        line-height: 1.4;
+        border-radius: 15px;
+    }
+
+    .tree-santa-bubble::after {
+        bottom: -10px;
+        right: 25px;
+    }
+
+    /* Reindeer */
+
+    .tree-reindeer-area {
+        grid-column: 2;
+        grid-row: 2;
+
+        width: 100%;
+        max-width: 210px;
+        min-width: 0;
+        min-height: 170px;
+
+        justify-self: center;
+    }
+
+    .tree-reindeer-image {
+        width: 100%;
+        height: 170px;
+        max-height: 170px;
+        object-fit: contain;
+        object-position: bottom;
+    }
+
+    /* Baubles */
+
+    .tree-baubles {
+        inset: 4% 5% 5%;
+    }
+
+    .tree-bauble {
+        width: 14px;
+        height: 14px;
+    }
+
+    .bauble-cap {
+        width: 6px;
+        height: 3px;
+        top: -3px;
+        left: 4px;
+    }
+
+    .bauble-shine {
+        width: 4px;
+        height: 4px;
+        left: 3px;
+        top: 3px;
+    }
+
+    /* Tree decorations */
+
+    .tree-star {
+        font-size: 14px;
+    }
+
+    .tree-bell {
+        font-size: 18px;
+    }
+
+    /* Tree base and gifts */
+
+    .tree-base {
+        width: 90px;
+        height: 13px;
+    }
+
+    .tree-gifts {
+        width: 100%;
+        gap: clamp(8px, 4vw, 18px);
+        margin-top: 5px;
+    }
+
+    .tree-gift-button {
+        padding: 2px;
+        min-width: 0;
+    }
+
+    .tree-gift-button img {
+        width: 43px;
+        height: 43px;
+    }
+
+    .tree-light-button {
+        margin: 13px 0 10px;
+        padding: 10px 17px;
+        font-size: 12px;
+    }
+
+    /* Bottom message */
+
+    .tree-bottom-message {
+        width: 100%;
+        max-width: 340px;
+        margin: 20px auto 0;
+        gap: 7px;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .tree-bottom-message svg {
+        width: 15px;
+        min-width: 15px;
+    }
+
+    /* Sparkles */
+
+    .tree-sparkle-layer {
+        overflow: hidden;
+    }
+
+    /* Gift popup */
+
+    .gift-modal {
+        width: 100%;
+        max-width: 340px;
+        padding: 35px 22px 25px;
+    }
+
+    .gift-modal h2 {
+        font-size: 23px;
+    }
+
+    .gift-modal p {
+        font-size: 13px;
+    }
+}
+
+/* =========================================
+   SMALL PHONES: UP TO 360px
+========================================= */
+
+@media (max-width: 360px) {
+    .christmas-tree-page {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .tree-page-heading h1 {
+        font-size: 30px;
+    }
+
+    .tree-image-wrapper {
+        max-width: 290px;
+    }
+
+    .tree-santa-area {
+        max-width: 155px;
+        min-height: 245px;
+        padding-top: 75px;
+    }
+
+    .tree-reindeer-area {
+        max-width: 170px;
+    }
+
+    .tree-santa-image {
+        height: 170px;
+        max-height: 170px;
+    }
+
+    .tree-santa-bubble {
+        width: 130px;
+        padding: 9px;
+        font-size: 10px;
+    }
+
+    .tree-gifts {
+        gap: 5px;
+    }
+
+    .tree-gift-button img {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* =========================================
+   ACCESSIBILITY AND REDUCED MOTION
+========================================= */
+
+.tree-light-button:focus-visible,
+.tree-gift-button:focus-visible,
+.gift-modal-button:focus-visible,
+.gift-modal-close:focus-visible {
+    outline: 2px solid #43A66B;
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .tree-santa-image,
+    .tree-reindeer-image,
+    .tree-bauble,
+    .tree-star,
+    .scene-sparkle,
+    .gift-modal {
+        animation: none !important;
+    }
+
+    .tree-image,
+    .tree-glow,
+    .tree-gift-button,
+    .tree-light-button,
+    .gift-modal-button {
+        transition: none !important;
+    }
+}

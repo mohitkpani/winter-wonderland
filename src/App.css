@@ -1,0 +1,83 @@
+/* =========================================
+   MAIN APP
+========================================= */
+
+.winter-world {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--winter-background);
+  color: var(--christmas-white);
+  overflow: hidden;
+}
+
+/* =========================================
+   VILLAGE INTRODUCTION
+========================================= */
+
+.village-intro {
+  min-height: 400px;
+  padding: 100px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    radial-gradient(circle at center,
+      #142b45,
+      var(--winter-background) 75%);
+}
+
+.intro-label {
+  color: var(--christmas-red-light);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+
+.village-intro h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--christmas-green-light);
+}
+
+.village-intro h2 span {
+  display: block;
+  color: var(--christmas-red-light);
+  font-style: italic;
+}
+
+.village-intro p {
+  max-width: 550px;
+  margin-top: 20px;
+
+  color: #b9c8d9;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 767px) {
+  .village-intro {
+    min-height: 350px;
+    padding: 75px 25px;
+  }
+
+  .intro-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .village-intro p {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,554 @@
+/* =========================================
+   HOME HERO SECTION
+========================================= */
+
+.home-hero {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 65px);
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+    isolation: isolate;
+
+    background-image: url("/images/home-background.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Background overlay */
+
+.home-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: linear-gradient(90deg,
+            rgba(3, 13, 31, 0.88) 0%,
+            rgba(3, 13, 31, 0.72) 38%,
+            rgba(3, 13, 31, 0.20) 72%,
+            rgba(3, 13, 31, 0.12) 100%);
+}
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.home-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    min-height: 650px;
+
+    margin: 0 auto;
+    padding: 55px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: 25px;
+}
+
+/* =========================================
+   LEFT CONTENT
+========================================= */
+
+.home-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 650px;
+}
+
+.home-eyebrow {
+    display: block;
+    color: #EF5350;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.home-content h1 {
+    margin: 0 0 25px;
+    color: #ffffff;
+
+    font-family: Georgia, serif;
+    font-size: clamp(48px, 5.2vw, 76px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+}
+
+.home-content h1 span {
+    display: block;
+    color: #43A66B;
+}
+
+.home-description {
+    max-width: 560px;
+    color: #e6edf7;
+    font-size: 17px;
+    line-height: 1.85;
+    margin: 0 0 35px;
+}
+
+/* =========================================
+   HOME BUTTONS
+========================================= */
+
+.home-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.home-primary-button,
+.home-outline-button {
+    min-height: 52px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 23px;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        color 0.3s ease;
+}
+
+.home-primary-button {
+    color: #ffffff;
+    background: #C62828;
+    border: 1px solid #C62828;
+}
+
+.home-outline-button {
+    color: #ffffff;
+    background: rgba(4, 18, 40, 0.45);
+    border: 1px solid #16834A;
+}
+
+.home-primary-button:hover {
+    transform: translateY(-4px);
+    background: #A91F1F;
+    border-color: #A91F1F;
+    box-shadow: 0 8px 25px rgba(198, 40, 40, 0.3);
+}
+
+.home-outline-button:hover {
+    transform: translateY(-4px);
+    background: rgba(22, 131, 74, 0.2);
+    border-color: #43A66B;
+}
+
+/* =========================================
+   SANTA CHARACTER AREA
+========================================= */
+
+.home-santa-area {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    min-height: 610px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.santa-character {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+    width: min(100%, 490px);
+    height: 590px;
+
+    object-fit: contain;
+    object-position: center bottom;
+    background: transparent;
+
+    filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.30));
+
+    animation: santaFloat 4s ease-in-out infinite;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Santa floating animation */
+
+@keyframes santaFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* =========================================
+   SANTA SPEECH BUBBLE
+========================================= */
+
+.santa-speech-bubble {
+    position: absolute;
+    z-index: 3;
+
+    top: 12px;
+    left: -115px;
+
+    width: 310px;
+    min-height: 115px;
+    padding: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff9eb;
+    border: 2px solid #16834A;
+    border-radius: 25px;
+
+    box-shadow:
+        0 0 25px rgba(22, 131, 74, 0.25),
+        0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.santa-speech-bubble::after {
+    content: "";
+    position: absolute;
+
+    bottom: -13px;
+    right: 45px;
+
+    width: 22px;
+    height: 22px;
+
+    background: #fff9eb;
+    border-right: 2px solid #16834A;
+    border-bottom: 2px solid #16834A;
+
+    transform: rotate(45deg);
+}
+
+.santa-message {
+    margin: 0;
+    color: #C62828;
+
+    font-family: Georgia, serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.55;
+    text-align: center;
+
+    animation: messagePop 0.6s ease both;
+}
+
+@keyframes messagePop {
+    0% {
+        opacity: 0;
+        transform: scale(0.65) translateY(12px);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.06) translateY(-3px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* =========================================
+   TABLET RESPONSIVENESS
+========================================= */
+
+@media (min-width: 701px) and (max-width: 1000px) {
+
+    .home-container {
+        padding: 45px 30px;
+
+        grid-template-columns:
+            minmax(0, 1fr) minmax(0, 0.85fr);
+
+        gap: 10px;
+    }
+
+    .home-content h1 {
+        font-size: clamp(42px, 5.5vw, 55px);
+    }
+
+    .home-description {
+        font-size: 15px;
+    }
+
+    .home-santa-area {
+        min-height: 500px;
+    }
+
+    .santa-character {
+        height: 490px;
+    }
+
+    .santa-speech-bubble {
+        width: 270px;
+        left: -100px;
+        padding: 20px;
+    }
+
+    .santa-message {
+        font-size: 15px;
+    }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 700px) {
+
+    .home-hero {
+        min-height: calc(100vh - 65px);
+        min-height: calc(100svh - 65px);
+
+        align-items: flex-start;
+        background-position: center;
+        background-attachment: scroll;
+    }
+
+    .home-overlay {
+        background: rgba(3, 13, 31, 0.68);
+    }
+
+    .home-container {
+        width: 100%;
+        max-width: 550px;
+        min-height: auto;
+
+        margin: 0 auto;
+
+        /* Space reserved below the navigation bar */
+        padding: 85px 20px 25px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+
+        text-align: center;
+    }
+
+    /* Text content */
+
+    .home-content {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .home-eyebrow {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+        margin-bottom: 14px;
+    }
+
+    .home-content h1 {
+        font-size: clamp(36px, 8vw, 48px);
+        line-height: 1.12;
+        letter-spacing: -0.5px;
+        margin: 0 0 16px;
+    }
+
+    .home-description {
+        max-width: 440px;
+        margin: 0 auto 22px;
+
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    /* Buttons */
+
+    .home-buttons {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .home-primary-button,
+    .home-outline-button {
+        min-height: 46px;
+        padding: 12px 15px;
+        font-size: 12px;
+    }
+
+    /* Santa area */
+
+    .home-santa-area {
+        width: 100%;
+        max-width: 390px;
+        min-height: 430px;
+
+        position: relative;
+
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+
+        margin: 0 auto;
+        padding-top: 110px;
+    }
+
+    /* Santa image */
+
+    .santa-character {
+        display: block;
+        position: relative;
+        z-index: 1;
+
+        width: min(85%, 310px);
+        height: 320px;
+
+        object-fit: contain;
+        object-position: center bottom;
+    }
+
+    /* Speech bubble above Santa */
+
+    .santa-speech-bubble {
+        position: absolute;
+        z-index: 3;
+
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: min(290px, 90%);
+        min-height: 88px;
+        padding: 16px;
+
+        border-radius: 20px;
+    }
+
+    .santa-speech-bubble::after {
+        right: 45px;
+    }
+
+    .santa-message {
+        font-size: 14px;
+        line-height: 1.45;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .home-container {
+        padding: 75px 14px 20px;
+        gap: 18px;
+    }
+
+    .home-eyebrow {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .home-content h1 {
+        font-size: 35px;
+    }
+
+    .home-description {
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+    /* Stack buttons on very small screens */
+
+    .home-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .home-primary-button,
+    .home-outline-button {
+        width: 100%;
+        min-height: 45px;
+    }
+
+    /* Santa */
+
+    .home-santa-area {
+        min-height: 410px;
+        padding-top: 100px;
+    }
+
+    .santa-character {
+        width: 90%;
+        height: 310px;
+    }
+
+    /* Speech bubble */
+
+    .santa-speech-bubble {
+        width: 92%;
+        min-height: 82px;
+        padding: 14px;
+    }
+
+    .santa-message {
+        font-size: 13px;
+    }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+.home-primary-button:focus-visible,
+.home-outline-button:focus-visible {
+    outline: 2px solid #43A66B;
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .santa-character,
+    .santa-message {
+        animation: none !important;
+    }
+
+    .home-primary-button,
+    .home-outline-button {
+        transition: none;
+    }
+}
