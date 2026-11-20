@@ -11,6 +11,7 @@ function Navbar() {
     const navLinks = [
         { name: "Home", link: "/" },
         { name: "The Village", link: "/village" },
+        { name: "Make a Wish", link: "/make-a-wish" },
         { name: "Christmas Tree", link: "/christmas-tree" },
         { name: "Santa's Story", link: "/story" }
     ];

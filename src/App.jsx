@@ -10,6 +10,7 @@ import ExplorePage from "./components/ExplorePage";
 import ChristmasTree from "./components/ChristmasTree";
 import ComicStory from "./components/ComicStory";
 import MusicPlayer from "./components/MusicPlayer";
+import WishPage from "./components/WishPage";
 
 import "./App.css";
 
@@ -61,6 +62,8 @@ function App() {
             path="/story"
             element={<ComicStory />}
           />
+
+          <Route path="/make-a-wish" element={<WishPage />} />
 
           {/* Page Not Found */}
           <Route

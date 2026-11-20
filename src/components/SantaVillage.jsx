@@ -47,7 +47,6 @@ function SantaVillage() {
 
             {/* Village Heading */}
             <header className="village-heading">
-
                 <span className="village-eyebrow">
                     THE NORTH POLE
                 </span>
@@ -60,7 +59,6 @@ function SantaVillage() {
                     Beyond the snowy mountains lies a little village
                     filled with warmth, wonder and Christmas magic.
                 </p>
-
             </header>
 
             {/* Main Village Image */}
@@ -72,7 +70,15 @@ function SantaVillage() {
                     alt="A magical snow-covered North Pole village with Santa's House, Toy Workshop, Christmas Market and Reindeer Stable"
                 />
 
-                {/* Invisible interactive building areas */}
+                {/* Snowman Character */}
+                <img
+                    className="village-snowman"
+                    src="/images/snowman-character.webp"
+                    alt="A festive snowman decorated with Christmas lights, chocolates and gifts"
+                    draggable="false"
+                />
+
+                {/* Interactive Building Areas */}
                 {locations.map((location) => (
                     <button
                         key={location.id}
@@ -90,7 +96,6 @@ function SantaVillage() {
             <div className="village-discover">
 
                 <div className="village-discover-heading">
-
                     <span>DISCOVER THE MAGIC</span>
 
                     <h2>Explore the Village</h2>
@@ -98,7 +103,6 @@ function SantaVillage() {
                     <p>
                         Every corner of the North Pole has a story to tell.
                     </p>
-
                 </div>
 
                 <div className="village-location-grid">
@@ -110,35 +114,27 @@ function SantaVillage() {
                             className="village-location-card"
                             onClick={() => setSelectedLocation(location)}
                         >
-
                             <span className="location-information">
-
                                 <strong>{location.name}</strong>
-
                                 <small>{location.subtitle}</small>
-
                             </span>
 
                             <ArrowUpRight
                                 className="location-arrow"
                                 size={21}
                             />
-
                         </button>
                     ))}
 
                 </div>
-
             </div>
 
             {/* Location Details Modal */}
             {selectedLocation && (
-
                 <div
                     className="village-dialog-backdrop"
                     onClick={closeModal}
                 >
-
                     <div
                         className="village-dialog"
                         role="dialog"
@@ -146,7 +142,6 @@ function SantaVillage() {
                         aria-labelledby="village-dialog-title"
                         onClick={(event) => event.stopPropagation()}
                     >
-
                         <button
                             className="village-dialog-close"
                             onClick={closeModal}
@@ -173,11 +168,8 @@ function SantaVillage() {
                         >
                             Return to Village
                         </button>
-
                     </div>
-
                 </div>
-
             )}
 
         </section>

@@ -575,3 +575,63 @@
         transition: none !important;
     }
 }
+
+/* Larger snowman with an icy magical glow */
+
+.village-world {
+    position: relative;
+    isolation: isolate;
+}
+
+.village-snowman {
+    position: absolute;
+    width: clamp(190px, 27%, 310px);
+    height: auto;
+    left: 50%;
+    bottom: 1%;
+    transform: translateX(-50%);
+    object-fit: contain;
+    z-index: 2;
+    pointer-events: none;
+    user-select: none;
+
+    filter:
+        drop-shadow(0 0 10px rgba(190, 225, 255, 0.95)) drop-shadow(0 0 22px rgba(130, 195, 255, 0.75)) drop-shadow(0 0 38px rgba(255, 255, 255, 0.55));
+
+    animation: snowmanGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes snowmanGlow {
+    from {
+        filter:
+            drop-shadow(0 0 8px rgba(190, 225, 255, 0.8)) drop-shadow(0 0 18px rgba(130, 195, 255, 0.55)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
+    }
+
+    to {
+        filter:
+            drop-shadow(0 0 14px rgba(220, 240, 255, 1)) drop-shadow(0 0 30px rgba(130, 195, 255, 0.85)) drop-shadow(0 0 45px rgba(255, 255, 255, 0.7));
+    }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .village-snowman {
+        width: 29%;
+        bottom: 1%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .village-snowman {
+        width: 34%;
+        bottom: 1%;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .village-snowman {
+        animation: none;
+    }
+}
